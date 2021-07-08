@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback } from 'react'
+import isMobile from 'ismobilejs'
+import * as Styled from './App.styled'
+
+const FRAME_URL = 'http://192.168.0.214:3001'
 
 function App() {
+  const [showAllFixed, setShowAllFixed] = useState(false)
+
+  const handleShowAllFixed = useCallback(() => {
+    setShowAllFixed(true)
+    document.body.classList.add('nonScrollable')
+  }, [])
+
+  const handleHideAllFixed = useCallback(() => {
+    setShowAllFixed(false)
+    document.body.classList.remove('nonScrollable')
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Styled.Container>
+      <Styled.NewTabButton href={`${FRAME_URL}/newtab`} target="_blank">new tab 버튼</Styled.NewTabButton>
+      <Styled.FixedButton onClick={handleShowAllFixed}>fixed 버튼</Styled.FixedButton>
+      {showAllFixed && (
+        <Styled.PluginContainer
+          show={showAllFixed}
+          isMobile={isMobile().phone}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Styled.Close onClick={handleHideAllFixed}>닫기</Styled.Close>
+          <Styled.Plugin id="plugin-iframe" src={`${FRAME_URL}/all`}></Styled.Plugin>
+        </Styled.PluginContainer>
+      )}
+    </Styled.Container>
+  )
 }
 
-export default App;
+export default App
