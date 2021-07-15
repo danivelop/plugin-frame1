@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import isMobile from 'ismobilejs'
 import * as Styled from './App.styled'
 
-const FRAME_URL = 'http://192.168.0.214:3001'
+const FRAME_URL = 'http://192.168.0.3:3001'
 
 function App() {
   const [showAllFixed, setShowAllFixed] = useState(false)

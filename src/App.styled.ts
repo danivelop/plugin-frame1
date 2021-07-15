@@ -8,7 +8,7 @@ interface PluginContainerProps {
 export const Container = styled.div`
   position: relative;
   width: 100vw;
-  height: 140vh;
+  height: 100vh;
   background-color: #D4D4D4;
 `
 
@@ -17,7 +17,7 @@ export const NewTabButton = styled.a`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: calc(env(safe-area-inset-bottom, 0) + 64px);
+  bottom: env(safe-area-inset-bottom, 0);
   left: 24px;
   width: 64px;
   height: 64px;
@@ -37,7 +37,7 @@ export const FixedButton = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: calc(env(safe-area-inset-bottom, 0) + 64px);
+  bottom: env(safe-area-inset-bottom, 0);
   right: 24px;
   width: 64px;
   height: 64px;
@@ -62,7 +62,7 @@ export const PluginContainer = styled.div<PluginContainerProps>`
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   `}
 `
 
