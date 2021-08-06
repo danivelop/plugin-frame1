@@ -8,7 +8,7 @@ interface PluginContainerProps {
 export const Container = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 140vh;
   background-color: #D4D4D4;
 `
 
@@ -68,7 +68,7 @@ export const PluginContainer = styled.div<PluginContainerProps>`
 
 export const Plugin = styled.iframe`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   border: 0;
 `
 
