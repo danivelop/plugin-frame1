@@ -62,13 +62,13 @@ export const PluginContainer = styled.div<PluginContainerProps>`
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
   `}
 `
 
 export const Plugin = styled.iframe`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border: 0;
 `
 
