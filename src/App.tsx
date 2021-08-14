@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import isMobile from 'ismobilejs'
+import ChannelService from './ChannelService'
 import * as Styled from './App.styled'
 
 const FRAME_URL = 'http://192.168.0.158:3001'
@@ -15,6 +16,12 @@ function App() {
   const handleHideAllFixed = useCallback(() => {
     setShowAllFixed(false)
     document.body.classList.remove('nonScrollable')
+  }, [])
+
+  useEffect(() => {
+    ChannelService.boot({
+      pluginKey: '5c1148b1-7714-4333-8bb5-6dfea1172dc7',
+    })
   }, [])
 
   return (
